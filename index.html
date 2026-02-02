@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>†Σ†尺∆</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; font-family: sans-serif; }
+    canvas { display: block; width: 100vw; height: 100vh; background-color: rgba(1, 1, 1, 0.1); touch-action: none; }
+    #motif-ui {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 22px;
+      letter-spacing: 2px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #0ff, 0 0 30px #0ff;
+      animation: neonPulse 2s infinite alternate ease-in-out;
+    }
+    #timer-container {
+      position: absolute;
+      bottom: 0;
+      left: 10%;
+      width: 90vw;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(2px);
+      pointer-events: none;
+      z-index: 100;
+    }
+    #timer-bar {
+      filter: saturate(5);
+      width: 0%;
+      height: 100%;
+      background: rgb(0, 255, 200);
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(1, 1, 1, 0.6), 0 0 20px rgba(1, 1, 1, 0.6);
+      transition: width 0.1s linear;
+    }
+    @keyframes neonPulse {
+      from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0ff; filter: brightness(0.9); }
+      to { text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 35px #0ff, 0 0 50px #0ff; filter: brightness(1.2) saturate(4); }
+    }
+  </style>
+</head>
+<body>
+  <div id="timer-container">
+    <div id="timer-bar"></div>
+  </div>
+  <div id="motif-ui">
+    <div id="motif-id"></div>
+    <div id="motif-count" style="font-size: 14px; margin-top: 5px; opacity: 0.8;"></div>
+  </div>
+  <canvas id="canvas"></canvas>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
